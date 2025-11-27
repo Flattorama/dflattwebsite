@@ -4,16 +4,20 @@ import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  // IMPORTANT: The base must match your repo name for GitHub Pages to work
+  base: '/dflattwebsite/', 
+  
   plugins: [react()],
+  
   resolve: {
     alias: {
-      // This allows you to import from 'src' using '@' 
-      // Example: import Card from '@/components/Card'
+      // Allows using imports like "@/components/Card"
       '@': path.resolve(__dirname, './src'),
     },
   },
+  
   server: {
     port: 3000,
-    host: true, // This exposes the app to your network (same as 0.0.0.0)
+    host: true,
   },
 });
