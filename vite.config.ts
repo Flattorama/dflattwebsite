@@ -4,8 +4,8 @@ import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  // IMPORTANT: The base must match your repo name for GitHub Pages to work
-  base: '/dflattwebsite/', 
+  // UPDATED: Set to '/' because you are now hosting at the root of danflatt.ca
+  base: '/', 
   
   plugins: [react()],
   
