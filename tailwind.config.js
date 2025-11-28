@@ -14,6 +14,7 @@ export default {
       colors: {
         'theme-bg': '#FFF8F0', // Cream
         'card-bg': '#EAEBE6',
+        'accent': '#8082f8', // Purple from hero
         'accent-purple': '#8082f8', // From Project 1
       }
     },

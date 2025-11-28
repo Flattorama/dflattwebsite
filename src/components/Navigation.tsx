@@ -39,9 +39,7 @@ const Navigation: React.FC = () => {
 
           {/* Desktop Info Line */}
           <div className="hidden md:flex items-center gap-3 text-accent font-display text-lg uppercase tracking-wide">
-             <a href="mailto:hello@danflatt.com" className="nav-link-hover">hello@danflatt.com</a>
-             <span className="text-xl animate-pulse">✦</span>
-             <span>AVAILABLE JANUARY 2026</span>
+             <a href="mailto:hi@danflatt.ca" className="nav-link-hover">hi@danflatt.ca</a>
           </div>
         </div>
 
