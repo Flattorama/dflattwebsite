@@ -34,12 +34,12 @@ const Navigation: React.FC = () => {
         {/* Left Side: Logo & Info */}
         <div className="flex flex-col md:flex-row items-start md:items-center gap-8 pointer-events-auto">
           {/* Logo */}
-          <Link to="/" className={`font-display text-5xl font-bold uppercase tracking-tighter leading-none select-none transition-colors duration-300 ${isOpen ? 'text-[#fcf8f3]' : 'text-accent'} md:text-accent hover:opacity-80`}>
+          <Link to="/" className={`font-anton text-5xl font-bold uppercase tracking-tighter leading-none select-none transition-colors duration-300 ${isOpen ? 'text-[#fcf8f3]' : 'text-accent'} md:text-accent hover:opacity-80`}>
             DF
           </Link>
 
           {/* Desktop Info Line */}
-          <div className="hidden md:flex items-center gap-3 text-accent font-display text-lg uppercase tracking-wide">
+          <div className="hidden md:flex items-center gap-3 text-accent font-anton text-lg uppercase tracking-wide">
              <a href="mailto:hi@danflatt.ca" className="nav-link-hover">hi@danflatt.ca</a>
           </div>
         </div>
@@ -59,7 +59,7 @@ const Navigation: React.FC = () => {
                 <Link
                   key={link}
                   to={route}
-                  className="text-accent font-display text-xl uppercase font-bold tracking-wide nav-link-hover"
+                  className="text-accent font-anton text-xl uppercase font-bold tracking-wide nav-link-hover"
                 >
                   {link}
                 </Link>
@@ -69,7 +69,7 @@ const Navigation: React.FC = () => {
                 <a
                   key={link}
                   href={route}
-                  className="text-accent font-display text-xl uppercase font-bold tracking-wide nav-link-hover"
+                  className="text-accent font-anton text-xl uppercase font-bold tracking-wide nav-link-hover"
                 >
                   {link}
                 </a>
@@ -110,7 +110,7 @@ const Navigation: React.FC = () => {
       >
         {/* Top bar alignment spacer (matches main nav padding) */}
         <div className="flex justify-between items-start mb-12 select-none">
-           <div className="text-[#fcf8f3] font-display text-5xl font-bold uppercase tracking-tighter leading-none">
+           <div className="text-[#fcf8f3] font-anton text-5xl font-bold uppercase tracking-tighter leading-none">
              DF
            </div>
            {/* Placeholder for the fixed button position */}
@@ -133,7 +133,7 @@ const Navigation: React.FC = () => {
                   key={link}
                   to={route}
                   onClick={() => setIsOpen(false)}
-                  className="text-[#fcf8f3] font-display text-[15vw] leading-[0.85] uppercase font-bold tracking-tight hover:opacity-80 transition-opacity"
+                  className="text-[#fcf8f3] font-anton text-[15vw] leading-[0.85] uppercase font-bold tracking-tight hover:opacity-80 transition-opacity"
                   style={{ transitionDelay: `${index * 50}ms` }}
                 >
                   {link}
@@ -145,7 +145,7 @@ const Navigation: React.FC = () => {
                   key={link}
                   href={route}
                   onClick={() => setIsOpen(false)}
-                  className="text-[#fcf8f3] font-display text-[15vw] leading-[0.85] uppercase font-bold tracking-tight hover:opacity-80 transition-opacity"
+                  className="text-[#fcf8f3] font-anton text-[15vw] leading-[0.85] uppercase font-bold tracking-tight hover:opacity-80 transition-opacity"
                   style={{ transitionDelay: `${index * 50}ms` }}
                 >
                   {link}
@@ -162,7 +162,7 @@ const Navigation: React.FC = () => {
                  <a 
                    key={social} 
                    href="#" 
-                   className="text-[#fcf8f3] font-display text-3xl uppercase font-bold tracking-wide hover:translate-x-2 transition-transform"
+                   className="text-[#fcf8f3] font-anton text-3xl uppercase font-bold tracking-wide hover:translate-x-2 transition-transform"
                  >
                    {social}
                  </a>
