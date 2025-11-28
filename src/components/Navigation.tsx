@@ -33,7 +33,7 @@ const Navigation: React.FC = () => {
         {/* Left Side: Logo & Info */}
         <div className="flex flex-col md:flex-row items-start md:items-center gap-8 pointer-events-auto">
           {/* Logo */}
-          <div className="text-accent font-display text-5xl font-bold uppercase tracking-tighter leading-none select-none">
+          <div className={`font-display text-5xl font-bold uppercase tracking-tighter leading-none select-none transition-colors duration-300 ${isOpen ? 'text-[#fcf8f3]' : 'text-accent'} md:text-accent`}>
             DF
           </div>
 
