@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Navigation: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -45,15 +46,36 @@ const Navigation: React.FC = () => {
 
         {/* Right Side: Desktop Nav */}
         <div className="hidden md:flex gap-8 pointer-events-auto">
-          {links.map(link => (
-            <a 
-              key={link} 
-              href={`#${link.toLowerCase()}`} 
-              className="text-accent font-display text-xl uppercase font-bold tracking-wide nav-link-hover"
-            >
-              {link}
-            </a>
-          ))}
+          {links.map(link => {
+            // Map nav labels to routes
+            const routeMap: { [key: string]: string } = {
+              'BLOGS': '/blog',
+            };
+            const route = routeMap[link] || `#${link.toLowerCase()}`;
+            
+            // Use Link for router navigation, anchor tags for others
+            if (route.startsWith('/')) {
+              return (
+                <Link
+                  key={link}
+                  to={route}
+                  className="text-accent font-display text-xl uppercase font-bold tracking-wide nav-link-hover"
+                >
+                  {link}
+                </Link>
+              );
+            } else {
+              return (
+                <a
+                  key={link}
+                  href={route}
+                  className="text-accent font-display text-xl uppercase font-bold tracking-wide nav-link-hover"
+                >
+                  {link}
+                </a>
+              );
+            }
+          })}
         </div>
 
         {/* Mobile Menu Toggle Button */}
@@ -97,17 +119,40 @@ const Navigation: React.FC = () => {
 
         {/* Mobile Nav Links */}
         <div className="flex flex-col gap-1 mb-auto">
-          {links.map((link, index) => (
-            <a
-              key={link}
-              href={`#${link.toLowerCase()}`}
-              onClick={() => setIsOpen(false)}
-              className="text-[#fcf8f3] font-display text-[15vw] leading-[0.85] uppercase font-bold tracking-tight hover:opacity-80 transition-opacity"
-              style={{ transitionDelay: `${index * 50}ms` }}
-            >
-              {link}
-            </a>
-          ))}
+          {links.map((link, index) => {
+            // Map nav labels to routes
+            const routeMap: { [key: string]: string } = {
+              'BLOGS': '/blog',
+            };
+            const route = routeMap[link] || `#${link.toLowerCase()}`;
+            
+            // Use Link for router navigation, anchor tags for others
+            if (route.startsWith('/')) {
+              return (
+                <Link
+                  key={link}
+                  to={route}
+                  onClick={() => setIsOpen(false)}
+                  className="text-[#fcf8f3] font-display text-[15vw] leading-[0.85] uppercase font-bold tracking-tight hover:opacity-80 transition-opacity"
+                  style={{ transitionDelay: `${index * 50}ms` }}
+                >
+                  {link}
+                </Link>
+              );
+            } else {
+              return (
+                <a
+                  key={link}
+                  href={route}
+                  onClick={() => setIsOpen(false)}
+                  className="text-[#fcf8f3] font-display text-[15vw] leading-[0.85] uppercase font-bold tracking-tight hover:opacity-80 transition-opacity"
+                  style={{ transitionDelay: `${index * 50}ms` }}
+                >
+                  {link}
+                </a>
+              );
+            }
+          })}
         </div>
 
         {/* Mobile Socials */}
