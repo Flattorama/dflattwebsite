@@ -1,0 +1,212 @@
+Developer Instructions: Dan Flatt - About Page Implementation
+
+1. Overview & Design Philosophy
+
+Reference Site: Cyd Stumpel About Page
+Core Aesthetic: Maximalist typography, high-contrast, playful but executive, fluid scroll-triggered animations.
+
+Key Technical Requirements:
+
+Framework: React / Next.js (Preferred) or plain HTML/GSAP.
+
+Animation Library: GSAP (GreenSock) with ScrollTrigger is highly recommended for the complex header scaling and card fanning effects.
+
+Responsive: All animations must degrade gracefully on mobile (stack vertically instead of fan out if screen width < 768px).
+
+2. Hero Section: "The Floating Orbit"
+
+Visual Layout
+
+Background: Off-white / Cream (matches Cyd's #FFFBF5 or your brand equivalent).
+
+Main Typography: Massive, screen-filling text spanning two lines:
+
+Line 1: DAN
+
+Line 2: FLATT
+
+Style: Heavy Sans-serif (Impact or similar custom font), Color: Brand Red or Electric Blue.
+
+Floating "Bubbles": 4-6 circular elements orbiting/floating around the text.
+
+Animation Specs (The Bubbles)
+
+Content: A mix of static images and animated GIFs/WebMs inside circular masks.
+
+Bubble 1 (GIF): A looping clip of Dan speaking at a podium (Advocacy).
+
+Bubble 2 (Static): High-res headshot smiling.
+
+Bubble 3 (GIF): A rotating 3D wireframe or VR headset (Tech).
+
+Bubble 4 (Static): A gavel or legal scale icon (Law).
+
+Behavior:
+
+Idle: Gentle floating animation (CSS keyframes translateY/X) so they are never perfectly still.
+
+Mouse Interaction: Slight parallax effect on mousemove.
+
+Scroll: Parallax scroll speed (bubbles move faster/slower than the text).
+
+3. Global Scroll Interaction: "The Shrinking Headers"
+
+This is the signature interaction of the reference site.
+
+Logic
+
+As the user scrolls down to a new section (e.g., "About Me", "Services"), the large section title must transition from Part of the content flow to Fixed/Sticky Header.
+
+Initial State: The Section Title (e.g., "ABOUT ME") appears large (approx 8vw font size) in the center of the viewport as you arrive at the section.
+
+Trigger: As the user scrolls past the title.
+
+Action:
+
+The title becomes position: fixed or sticky.
+
+It scales down significantly (from 8vw to ~1.5vw).
+
+It moves to the Top Center of the screen.
+
+Exit: When the user reaches the end of that section, the title scrolls away (un-sticks) or dissolves, replaced by the next section's title which repeats the process.
+
+4. Section 1: "About Me" (Narrative)
+
+Content
+
+Sticky Header Text: "ABOUT ME"
+
+Body Copy (Large, Editorial Style):
+
+"I didn’t just want to argue about the past; I wanted to build the future. I am a Strategic Growth Architect operating at the intersection of structure and chaos. Whether negotiating high-stakes litigation or building VR engines from scratch, I bring the discipline of a lawyer, the efficiency of a consultant, and the hunger of an entrepreneur."
+
+Visuals
+
+The Rotating Portrait: A large rectangular card containing a portrait of Dan.
+
+Animation: As you scroll reading the text, this card should slowly rotate/tilt (3D perspective) based on scroll velocity (skew effect).
+
+5. Section 2: "Services" (The Offering)
+
+Content
+
+Sticky Header Text: "SERVICES"
+
+Layout: Large, bold list (no bullets, just massive text) aligned right or center.
+
+List Items:
+
+FRACTIONAL CMO / GROWTH LEADERSHIP
+
+DIGITAL CORPORATE REPORTING (REACT/D3.JS)
+
+CRISIS MANAGEMENT & ADVOCACY
+
+LEGALTECH WORKFLOW AUTOMATION
+
+Interaction
+
+Hover: When hovering over a service, a relevant image/GIF should appear floating near the cursor (reveal interaction).
+
+6. Section 3: "Ventures" (The Card Stack)
+
+Reference: The "Websites" section on Cyd's site.
+
+Sticky Header Text: "VENTURES"
+
+The Card Stack Animation (CRITICAL)
+
+Initial State: A stack of 3-4 cards (Case Studies) are piled directly on top of each other in the center/right of the screen.
+
+Scroll Action: As the user scrolls down the section, the cards fan out.
+
+Card 1: Rotates -5deg, translates Left.
+
+Card 2: Stays Center.
+
+Card 3: Rotates +5deg, translates Right.
+
+Reverse: Scrolling up causes them to stack back together.
+
+Mobile: Do not fan out horizontally. Stack them vertically with a slight overlap.
+
+Card Content
+
+Card 1 (Sportball):
+
+Visual: Animated GIF of a dashboard counters ticking up (CAC reduction).
+
+Label: "THE TURNAROUND"
+
+Card 2 (Metavrse):
+
+Visual: High-res screenshot of a VR environment or 3D model.
+
+Label: "THE INNOVATION"
+
+Card 3 (Naborino):
+
+Visual: Photo of a community gathering or app UI.
+
+Label: "THE COMMUNITY"
+
+7. Section 4: "Speaking & Advocacy"
+
+Reference: The "Speaking Engagements" section.
+
+Sticky Header Text: "SPEAKING"
+
+Layout & Animation
+
+Left Side: A chaotic "pile" of polaroid-style photos.
+
+Photos: Dan speaking at conferences, Tafsik rallies, tech meetups.
+
+Right Side: Copy text.
+
+Copy: "Sharing knowledge is how we scale impact. From legal boardrooms to tech conferences, I speak on the collision of regulation, innovation, and community resilience."
+
+Animation: The photo pile should shuffle or slightly disperse as the user scrolls past.
+
+8. Section 5: "Recognition" (Awards)
+
+Reference: The "Awards" section.
+
+Sticky Header Text: "RECOGNITION"
+
+Layout
+
+Simple, elegant list with red accent lines separating items.
+
+Content:
+
+Item: SMASHING MAGAZINE - "Person of the Week" (Concept)
+
+Item: TD BANK INNOVATION - "Vendor Partner Award"
+
+Item: SIX SIGMA - "Black Belt Certification"
+
+9. Footer Call to Action
+
+Text: "READY TO BUILD?"
+
+Button: Large, pill-shaped button: "START A PROJECT" (Links to Contact).
+
+Email: "HI@DANFLATT.CA" (Massive text at bottom).
+
+Summary of Assets Required
+
+Font Files: Heavy Sans-serif (Main headers), Clean Sans-serif (Body).
+
+Cut-out Headshots: 2-3 variations (Smiling, Speaking, Serious).
+
+GIFs:
+
+Speaking clip (looped).
+
+Coding/Dashboard timelapse.
+
+VR/3D object rotation.
+
+Project Screenshots: High-res exports for the "Ventures" cards.
