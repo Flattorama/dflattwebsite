@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Navigation: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const links = ['ABOUT', 'ARCHIVE', 'SPEAKING', 'BLOGS', 'CONTACT'];
+  const links = ['ABOUT', 'SERVICES', 'SPEAKING', 'BLOGS', 'CONTACT'];
   const socials = ['GITHUB', 'CODEPEN', 'BLUESKY', 'MASTODON', 'INSTAGRAM', 'LINKEDIN', 'RSS'];
 
   return (
@@ -51,6 +51,7 @@ const Navigation: React.FC = () => {
             const routeMap: { [key: string]: string } = {
               'BLOGS': '/blog',
               'ABOUT': '/about',
+              'SERVICES': '/services',
             };
             const route = routeMap[link] || `#${link.toLowerCase()}`;
             
@@ -125,6 +126,7 @@ const Navigation: React.FC = () => {
             const routeMap: { [key: string]: string } = {
               'BLOGS': '/blog',
               'ABOUT': '/about',
+              'SERVICES': '/services',
             };
             const route = routeMap[link] || `#${link.toLowerCase()}`;
             
