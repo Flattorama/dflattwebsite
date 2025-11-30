@@ -5,13 +5,13 @@ This is Dan Flatt's creative developer portfolio website. It's a React + TypeScr
 - Interactive 3D header with custom Scene component
 - Scrollable card stack showcasing selected work
 - Modern UI with Tailwind CSS
-- Navigation menu with links to About, Archive, Speaking, Blogs, and Contact sections
+- Navigation menu with links to About, Services, Speaking, Blogs, and Contact sections
 - Multi-page routing with React Router
 
 ## Project Structure
 - `src/` - Application source code
   - `components/` - React components (Card, CardStack, Navigation, Scene)
-  - `pages/` - Page components (Home, Blog, About)
+  - `pages/` - Page components (Home, Blog, About, Services)
   - `App.tsx` - Main application router component
   - `index.tsx` - Application entry point
   - `constants.ts` - Application constants
@@ -33,6 +33,22 @@ This is Dan Flatt's creative developer portfolio website. It's a React + TypeScr
 - **Routing**: React Router DOM for multi-page navigation
 
 ## Recent Changes (November 30, 2025)
+
+### Services Page Implementation
+- Created comprehensive Services page at /services with:
+  - **Hero Section**: Massive "GROWTH ARCHITECTURE" typography with floating tech symbols (paragraph ¶, code brackets {}, growth arrow, chart)
+  - **Sticky Sidebar Navigation**: Left-side nav that highlights current section (01-06) based on scroll position using GSAP ScrollTrigger
+  - **6 Service Sections** with case study cards:
+    - 01. Fractional CMO (Sportball Franchise case study)
+    - 02. Corporate Reporting (ESG Visualization case study)
+    - 03. Crisis Leadership (Tafsik Advocacy case study)
+    - 04. Legal Ops (Lumin8 Compliance case study)
+    - 05. VR/AR Strategy (Metavrse Agency case study)
+    - 06. Community Growth (Naborino case study)
+  - **Secondary Services Section**: Capital Raise Prep, SaaS Product Strategy
+  - **Footer CTA**: "Which Problem Are We Solving?" with three action buttons (Scale My Startup, Build My Report, Fix My Crisis)
+- Updated Navigation: Replaced "Archive" with "Services" and added route mapping
+- Added /services route to App.tsx
 
 ### About Page Implementation
 - Installed GSAP animation library for scroll-triggered animations
@@ -88,8 +104,9 @@ This is Dan Flatt's creative developer portfolio website. It's a React + TypeScr
 ## Navigation
 - Home: "/" - Main portfolio page with hero and work showcase
 - About: "/about" - Comprehensive about page with GSAP scroll animations
+- Services: "/services" - Services index page with sticky sidebar navigation
 - Blog: "/blog" - Blog section with placeholder content
-- Other links (Archive, Speaking, Contact) currently use anchor navigation
+- Other links (Speaking, Contact) currently use anchor navigation
 
 ## User Preferences
 None recorded yet.
