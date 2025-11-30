@@ -11,7 +11,7 @@ This is Dan Flatt's creative developer portfolio website. It's a React + TypeScr
 ## Project Structure
 - `src/` - Application source code
   - `components/` - React components (Card, CardStack, Navigation, Scene)
-  - `pages/` - Page components (Home, Blog)
+  - `pages/` - Page components (Home, Blog, About)
   - `App.tsx` - Main application router component
   - `index.tsx` - Application entry point
   - `constants.ts` - Application constants
@@ -29,9 +29,27 @@ This is Dan Flatt's creative developer portfolio website. It's a React + TypeScr
 - **Styling**: Tailwind CSS 3.4.0
 - **Icons**: Lucide React 0.300.0
 - **Fonts**: Google Fonts (Anton, Inter)
+- **Animation**: GSAP with ScrollTrigger for scroll-driven animations
 - **Routing**: React Router DOM for multi-page navigation
 
-## Recent Changes (November 28, 2025)
+## Recent Changes (November 30, 2025)
+
+### About Page Implementation
+- Installed GSAP animation library for scroll-triggered animations
+- Created comprehensive About page at /about with multiple sections:
+  - **Hero Section**: Massive "DAN FLATT" typography with floating animated bubbles (emoji icons representing speaking, law, tech, development)
+  - **About Me Section**: Biographical content with 3D-rotating portrait card effect
+  - **Services Section**: List of offerings with hover-to-reveal image interaction
+  - **Ventures Section**: Card stack with scroll-triggered fan animation (cards spread apart on scroll)
+  - **Speaking Section**: Photo pile layout with stacked polaroid-style images
+  - **Recognition Section**: Awards list with accent-colored dividers
+  - **Footer CTA**: "Ready to Build?" with contact button and large email
+- Built reusable StickyHeaderSection component for signature shrinking header effect (headers start large, shrink and stick on scroll)
+- Updated Navigation component to route ABOUT link to /about page
+- Added About route to App.tsx router configuration
+- Menu font updated from Bueno (font-display) to Anton (font-anton) for better readability
+
+## Previous Changes (November 28, 2025)
 
 ### Initial Setup
 - Configured for Replit environment
@@ -69,8 +87,9 @@ This is Dan Flatt's creative developer portfolio website. It's a React + TypeScr
 
 ## Navigation
 - Home: "/" - Main portfolio page with hero and work showcase
+- About: "/about" - Comprehensive about page with GSAP scroll animations
 - Blog: "/blog" - Blog section with placeholder content
-- Other links (About, Archive, Speaking, Contact) currently use anchor navigation
+- Other links (Archive, Speaking, Contact) currently use anchor navigation
 
 ## User Preferences
 None recorded yet.

@@ -50,6 +50,7 @@ const Navigation: React.FC = () => {
             // Map nav labels to routes
             const routeMap: { [key: string]: string } = {
               'BLOGS': '/blog',
+              'ABOUT': '/about',
             };
             const route = routeMap[link] || `#${link.toLowerCase()}`;
             
@@ -123,6 +124,7 @@ const Navigation: React.FC = () => {
             // Map nav labels to routes
             const routeMap: { [key: string]: string } = {
               'BLOGS': '/blog',
+              'ABOUT': '/about',
             };
             const route = routeMap[link] || `#${link.toLowerCase()}`;
             
