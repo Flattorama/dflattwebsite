@@ -1,0 +1,268 @@
+Developer Instructions: Dan Flatt - Services Page Implementation
+
+1. Overview & Design Philosophy
+
+Reference Site: Cyd Stumpel Services/Work (General Layout Principles)
+Core Aesthetic: Clean, executive but high-impact. Text-heavy but broken up by fluid animations and bold interactive cards.
+
+Key Technical Requirements:
+
+Framework: React / Next.js.
+
+Animation Library: GSAP ScrollTrigger.
+
+Navigation: Each service is a "Chapter" on the page. Clicking a Case Study card navigates to the detailed Case Study page.
+
+2. Hero Section: "The Capabilities Engine"
+
+Visual Layout
+
+Background: Off-white / Cream.
+
+Main Typography: Two lines, massive scaling text.
+
+Line 1: GROWTH
+
+Line 2: ARCHITECTURE
+
+Orbiting Elements: Instead of personal photos (like the About page), these are abstract 3D symbols representing the hybrid nature of the work.
+
+Animation Specs (The Bubbles/Orbits)
+
+Symbol 1 (Law): A 3D rendered Paragraph Symbol (¶) or a Gavel, slowly rotating in a wireframe style.
+
+Symbol 2 (Tech): A glowing Code Bracket { } or a low-poly VR Headset.
+
+Symbol 3 (Growth): A rising Green Arrow or a jagged "Stock Chart" line.
+
+Interaction: Mouse movement causes them to drift apart (parallax).
+
+3. Global Interaction: "The Service Index"
+
+Logic:
+Unlike the About page which is a narrative flow, this page functions as an "Index."
+As the user scrolls, a Sticky Sidebar (Left or Right side) highlights the current section being viewed (e.g., "01. Fractional", "02. Reporting", "03. LegalTech").
+
+4. Service 01: Fractional C-Suite
+
+Sticky Header: "FRACTIONAL CMO"
+
+Copy & Content
+
+Headline: "The Strategic Oversight of a General Counsel. The Aggression of a Startup Founder."
+
+Body Copy:
+
+"Startups and SMEs often face a 'Growing Pain Gap': they need executive strategy but can't justify a full-time C-Suite hire. I bridge that gap. I audit your P&L, restructure your marketing stack, and ensure your growth is legally compliant and operationally sound."
+
+Bullet Points (The Deliverables):
+
+Go-To-Market Strategy Audit
+
+Vendor & Agency Management
+
+Regulatory Risk Assessment
+
+Team Structuring & Hiring
+
+Case Study Card (The Evidence)
+
+Card Title: SPORTBALL FRANCHISE
+
+Tagline: "Reducing CAC by 67% via Automation"
+
+Visual Animation:
+
+Initial: A static logo of Sportball.
+
+Hover/Scroll: The logo flips to reveal a Dashboard Counter rapidly ticking down from "$30.00" to "$9.50" (representing Cost Per Acquisition).
+
+5. Service 02: Digital Corporate Reporting
+
+Sticky Header: "CORPORATE REPORTING"
+
+Copy & Content
+
+Headline: "Stop Publishing PDFs. Start Building Experiences."
+
+Body Copy:
+
+"Investors don't read 100-page PDFs on their phones. They engage with data. I partner with Investor Relations teams and Agencies to build bespoke, interactive Annual Reports using React and D3.js. We turn disclosure into a competitive advantage."
+
+Bullet Points:
+
+Interactive ESG Data Visualization (D3.js)
+
+Responsive "Microsite" Annual Reports
+
+Machine-Readable Data Compliance
+
+White-Label Agency Partnership
+
+Case Study Card (The Evidence)
+
+Card Title: DEMO / AGENCY PARTNER
+
+Tagline: "Interactive ESG Visualization"
+
+Visual Animation:
+
+Initial: A boring static bar chart.
+
+Hover/Scroll: The bars morph (liquid animation) into a complex, rotating 3D globe or a dynamic stream graph, showcasing the power of D3.js.
+
+6. Service 03: Crisis Leadership & Advocacy
+
+Sticky Header: "CRISIS LEADERSHIP"
+
+Copy & Content
+
+Headline: "Calm in the Chaos. Rapid Response for High-Stakes Moments."
+
+Body Copy:
+
+"True leadership is tested when the timeline is short and the pressure is high. Drawing on my experience leading large-scale advocacy organizations, I help corporations navigate public relations crises, hostile narratives, and stakeholder mobilization."
+
+Bullet Points:
+
+Rapid Response Communications
+
+Stakeholder Mobilization Strategy
+
+Reputation Management
+
+Political Nuance Navigation
+
+Case Study Card (The Evidence)
+
+Card Title: TAFSIK ADVOCACY
+
+Tagline: "Mobilizing 4,300+ Stakeholders"
+
+Visual Animation:
+
+Initial: A lone silhouette icon.
+
+Hover/Scroll: The icon multiplies rapidly until the card is filled with thousands of dots connecting to form a network, symbolizing community mobilization.
+
+7. Service 04: LegalTech Innovation
+
+Sticky Header: "LEGAL OPS"
+
+Copy & Content
+
+Headline: "Where Law Meets Code. Automating the Billable Hour."
+
+Body Copy:
+
+"Legal departments are drowning in administrative friction. I act as a 'Legal Engineer,' translating the needs of Partners into technical workflows. From AI-driven contract review to automated compliance dashboards, I modernize legal operations."
+
+Bullet Points:
+
+Legal Workflow Automation
+
+AI Implementation & Governance
+
+Legal Tech Stack Audit
+
+Privacy Policy Automation
+
+Case Study Card (The Evidence)
+
+Card Title: LUMIN8 COMPLIANCE
+
+Tagline: "Automating Cross-Border Contracts"
+
+Visual Animation:
+
+Initial: A stack of paper documents.
+
+Hover/Scroll: The papers slide into a "shredder/scanner" animation and emerge as a clean, glowing digital checklist.
+
+8. Service 05: Immersive Tech Strategy (VR/AR)
+
+Sticky Header: "VR / AR STRATEGY"
+
+Copy & Content
+
+Headline: "Selling the Invisible. Enterprise Strategy for the Spatial Web."
+
+Body Copy:
+
+"I don't just talk about the Metaverse; I built one of Canada's first VR agencies. I help enterprise clients move beyond 'gimmicks' to find real ROI in spatial computing, training simulations, and augmented reality sales tools."
+
+Bullet Points:
+
+Enterprise VR Training Strategy
+
+AR Sales Enablement Tools
+
+Technical Vendor Selection
+
+Spatial Web Prototyping
+
+Case Study Card (The Evidence)
+
+Card Title: METAVRSE AGENCY
+
+Tagline: "7-Figure Revenue for Enterprise VR"
+
+Visual Animation:
+
+Initial: A flat 2D floorplan.
+
+Hover/Scroll: The floorplan extrudes upwards to become a 3D isometric building model that slowly spins.
+
+9. Service 06: Community Architecture
+
+Sticky Header: "COMMUNITY GROWTH"
+
+Copy & Content
+
+Headline: "Building Moats with People, Not Just Product."
+
+Body Copy:
+
+"In a world of rising ad costs, community is the only sustainable moat. I design 'Community Commerce' engines that turn passive customers into active evangelists, leveraging guerrilla marketing and grassroots psychology."
+
+Bullet Points:
+
+Community-Led Growth Strategy
+
+Influencer & Ambassador Programs
+
+Guerrilla Marketing Tactics
+
+User Sentiment Analysis
+
+Case Study Card (The Evidence)
+
+Card Title: NABORINO
+
+Tagline: "100k Impressions via Grassroots"
+
+Visual Animation:
+
+Initial: A quiet street map.
+
+Hover/Scroll: Pins drop onto the map rapidly, pulsing like radar blips to show growth spreading across a neighborhood.
+
+10. Secondary Services (Quick List)
+
+At the bottom of the page, a simpler 2-column list for remaining capabilities.
+
+07. CAPITAL RAISE PREP: Pitch deck narrative structuring and due diligence organization for Seed/Series A.
+
+08. SAAS PRODUCT STRATEGY: Roadmapping and feature prioritization for early-stage technical products.
+
+11. Footer / Next Steps
+
+Headline: "WHICH PROBLEM ARE WE SOLVING?"
+
+Interaction: Three large buttons side-by-side.
+
+[ SCALE MY STARTUP ] -> Links to Contact (Subject: Fractional)
+
+[ BUILD MY REPORT ] -> Links to Contact (Subject: Reporting)
+
+[ FIX MY CRISIS ] -> Links to Contact (Subject: Advisory)
