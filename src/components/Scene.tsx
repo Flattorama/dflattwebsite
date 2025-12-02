@@ -317,7 +317,7 @@ const Scene: React.FC = () => {
               <div className="orbit-ring"></div>
             </div>
             
-            <h1 className="hero-text bottom" data-text="Developer">Developer</h1>
+            <h1 className="hero-text bottom" data-text="Technologist">Technologist</h1>
 
             {/* Cycling Text Component */}
             <div className="subtitle-wrapper">
