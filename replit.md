@@ -41,6 +41,10 @@ This is Dan Flatt's creative developer portfolio website. It's a React + TypeScr
 - Internal placeholder links (#/case-study-details) render as static <div> cards without buttons
 - External URLs configured for: Lumin8 (lumin8.agency), Sportball (sportball.com), Digital Corporate Reporting (reports.tafsik.com)
 - Added jiggle animation to "Read Case Study" button in Tailwind config
+- **Mobile responsive design**: Cards now scale properly across breakpoints:
+  - Mobile (base): 280x420px, 140px image height, smaller text/padding
+  - Small screens (sm): 320x480px, 180px image height
+  - Medium+ screens (md): 400x560px, 240px image height, full padding
 
 ### Services Page Implementation
 - Created comprehensive Services page at /services with:
