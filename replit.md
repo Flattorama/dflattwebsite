@@ -34,6 +34,14 @@ This is Dan Flatt's creative developer portfolio website. It's a React + TypeScr
 
 ## Recent Changes (November 30, 2025)
 
+### Card Stack Redesign (December 3, 2025)
+- Updated CardData interface with new schema: clientName, projectTitle, years, imageAlt, themeColor
+- Expanded card stack to 13 case study cards covering Dan's full career history
+- Added external link detection: Cards with http:// links become clickable <a> tags with "Read Case Study" button
+- Internal placeholder links (#/case-study-details) render as static <div> cards without buttons
+- External URLs configured for: Lumin8 (lumin8.agency), Sportball (sportball.com), Digital Corporate Reporting (reports.tafsik.com)
+- Added jiggle animation to "Read Case Study" button in Tailwind config
+
 ### Services Page Implementation
 - Created comprehensive Services page at /services with:
   - **Hero Section**: Massive "GROWTH ARCHITECTURE" typography with floating tech symbols (paragraph ¶, code brackets {}, growth arrow, chart)
