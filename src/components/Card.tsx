@@ -1,5 +1,5 @@
 import React, { useRef, useCallback } from 'react';
-import { CardData, ThemeType } from '../types';
+import { CardData } from '../types';
 
 interface CardProps {
   data: CardData;
@@ -7,19 +7,20 @@ interface CardProps {
   total: number;
 }
 
-const themeStyles: Record<ThemeType, { bg: string; text: string; accent: string }> = {
-  [ThemeType.GREEN]: { bg: '#EAEBE6', text: '#114422', accent: '#114422' },
-  [ThemeType.PINK]: { bg: '#FFD4D4', text: '#FF2200', accent: '#FF2200' },
-  [ThemeType.BLUE]: { bg: '#D4E0FF', text: '#0044FF', accent: '#0044FF' },
-  [ThemeType.DARK]: { bg: '#1A1A1A', text: '#FFFFFF', accent: '#FFFFFF' },
-};
-
 export const Card: React.FC<CardProps> = ({ data, index, total }) => {
-  // Ref changed to HTMLAnchorElement since the interactive element is now a link
-  const cardRef = useRef<HTMLAnchorElement>(null);
-  const theme = themeStyles[data.theme];
+  const cardRef = useRef<HTMLElement>(null);
+  
+  const isExternalLink = data.link && data.link.startsWith('http');
+  
+  const Component = isExternalLink ? 'a' : 'div';
+  
+  const linkProps = isExternalLink ? {
+    href: data.link,
+    target: "_blank",
+    rel: "noopener noreferrer",
+  } : {};
 
-  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLElement>) => {
     if (!cardRef.current) return;
 
     const rect = cardRef.current.getBoundingClientRect();
@@ -28,8 +29,6 @@ export const Card: React.FC<CardProps> = ({ data, index, total }) => {
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
     
-    // Calculate rotation based on mouse position
-    // Sensitivity factor of 10
     const rotateX = ((y - centerY) / centerY) * -10;
     const rotateY = ((x - centerX) / centerX) * 10;
 
@@ -41,23 +40,14 @@ export const Card: React.FC<CardProps> = ({ data, index, total }) => {
     cardRef.current.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
   }, []);
 
-  // Split title by newlines for formatting
-  const titleLines = data.title.split('\n');
-
   return (
     <article
-      className="absolute top-1/2 left-1/2 w-[320px] h-[420px] md:w-[400px] md:h-[500px] origin-center will-change-transform"
+      className="absolute top-1/2 left-1/2 w-[320px] h-[480px] md:w-[400px] md:h-[560px] origin-center will-change-transform"
       style={{
-        // Positioning to center
         translate: '-50% -50%',
-        // Invert z-index: First card (index 0) gets highest z-index so it sits on top.
         zIndex: total - index, 
-        
-        // Custom properties for the CSS animation
         '--base-rotation': `${data.rotation}deg`,
         '--timeline': `--card-${index}`,
-        
-        // CSS Animation properties
         animationName: 'fly-away',
         animationFillMode: 'both',
         animationTimingFunction: 'linear',
@@ -65,57 +55,89 @@ export const Card: React.FC<CardProps> = ({ data, index, total }) => {
         animationRange: 'exit-crossing 0% exit-crossing 100%',
       } as React.CSSProperties}
     >
-      <a
-        href={data.link}
-        ref={cardRef}
-        className="block w-full h-full rounded-3xl p-6 flex flex-col justify-between shadow-2xl cursor-pointer border border-black/5 transition-transform duration-100 ease-out no-underline"
+      <Component
+        {...linkProps}
+        ref={cardRef as React.RefObject<HTMLAnchorElement> & React.RefObject<HTMLDivElement>}
+        className={`block w-full h-full rounded-[20px] shadow-2xl border border-black/5 transition-transform duration-100 ease-out no-underline overflow-hidden flex flex-col group ${isExternalLink ? 'cursor-pointer' : 'cursor-default'}`}
         style={{
-          backgroundColor: theme.bg,
-          color: theme.text,
+          backgroundColor: data.themeColor,
+          '--text-primary': '#FFFFFF',
+          '--text-secondary': 'rgba(255, 255, 255, 0.85)',
+          '--tag-bg-color': 'rgba(255, 255, 255, 0.2)',
           transformStyle: 'preserve-3d',
-        }}
+        } as React.CSSProperties}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
       >
-        <img
-          src={data.image}
-          alt={data.title}
-          className="w-full aspect-video object-cover rounded-xl shadow-md pointer-events-none"
+        {/* Image Container */}
+        <div 
+          className="w-full h-[240px] flex-shrink-0 bg-gray-300 relative overflow-hidden"
           style={{ transform: 'translateZ(20px)' }}
-        />
+        >
+          <img
+            src={data.image}
+            alt={data.imageAlt}
+            className="w-full h-full object-cover pointer-events-none"
+          />
+        </div>
         
-        <div className="flex flex-col">
-          <h2 
-            className="font-anton text-5xl leading-[0.9] uppercase mt-4 pointer-events-none"
-            style={{ transform: 'translateZ(30px)' }}
-          >
-            {titleLines.map((line, i) => (
-              <React.Fragment key={i}>
-                {line}
-                {i < titleLines.length - 1 && <br />}
-              </React.Fragment>
-            ))}
-          </h2>
-          
-          <div 
-            className="flex gap-2 flex-wrap mt-6 pointer-events-none"
-            style={{ transform: 'translateZ(30px)' }}
-          >
-            {data.tags.map((tag) => (
-              <span
-                key={tag}
-                className="px-2 py-1 text-xs font-anton uppercase tracking-wider font-extrabold"
-                style={{
-                  backgroundColor: theme.accent,
-                  color: data.theme === ThemeType.DARK ? '#1A1A1A' : theme.bg,
-                }}
-              >
-                {tag}
-              </span>
-            ))}
+        {/* Content Area */}
+        <div className="flex-1 p-6 flex flex-col justify-between" style={{ transform: 'translateZ(30px)' }}>
+          <div>
+            {/* Tags */}
+            <div className="flex gap-2 flex-wrap pointer-events-none mb-3">
+              {data.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="px-2 py-1 text-[0.7rem] font-bold uppercase tracking-wide rounded"
+                  style={{
+                    backgroundColor: 'var(--tag-bg-color)',
+                    color: 'var(--text-primary)',
+                  }}
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+
+            {/* Client Name */}
+            <h2 
+              className="font-inter font-extrabold text-[1.75rem] md:text-[2rem] leading-none uppercase tracking-tight pointer-events-none mb-2"
+              style={{ 
+                color: 'var(--text-primary)',
+                textShadow: '0 1px 2px rgba(0,0,0,0.1)'
+              }}
+            >
+              {data.clientName}
+            </h2>
+
+            {/* Project Title */}
+            <h3
+               className="font-inter font-medium text-[1.125rem] leading-snug pointer-events-none"
+               style={{ color: 'var(--text-secondary)' }}
+            >
+              {data.projectTitle}
+            </h3>
+          </div>
+
+          {/* Footer */}
+          <div className="mt-auto pt-4 border-t border-white/10 flex items-center justify-between min-h-[50px]">
+            <div 
+              className="font-inter text-sm"
+              style={{ color: 'var(--text-secondary)' }}
+            >
+              {data.years}
+            </div>
+            
+            {/* Render Button Only if Link is External */}
+            {isExternalLink && (
+               <div className="bg-white text-black px-4 py-2 rounded-full font-anton text-xs uppercase tracking-wide flex items-center gap-1 animate-jiggle shadow-lg transition-transform hover:scale-105">
+                 Read Case Study <span className="text-lg leading-none transform translate-y-[-1px]">→</span>
+               </div>
+            )}
           </div>
         </div>
-      </a>
+      </Component>
     </article>
   );
 };

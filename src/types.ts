@@ -1,16 +1,12 @@
-export enum ThemeType {
-  GREEN = 'GREEN',
-  PINK = 'PINK',
-  BLUE = 'BLUE',
-  DARK = 'DARK'
-}
-
 export interface CardData {
-  id: number;
-  title: string;
-  link: string;
-  image: string;
+  id: string;
+  clientName: string;
+  projectTitle: string;
+  years: string;
   tags: string[];
-  theme: ThemeType;
+  image: string;
+  imageAlt: string;
+  link: string;
+  themeColor: string;
   rotation: number;
 }
