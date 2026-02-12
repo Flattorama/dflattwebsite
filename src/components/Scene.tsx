@@ -334,10 +334,13 @@ const Scene: React.FC = () => {
         {/* 1. Smartphone */}
         <div className="js-orbiter" ref={el => { orbiterRefs.current[0] = el; }}>
           <svg viewBox="0 0 24 24" shapeRendering="crispEdges" fill="none" stroke="#8082f8" strokeWidth="1">
-            <path d="M7 2h10v20H7z" fill="none"/>
-            <path d="M9 4h6v12H9z" fill="none"/>
-            <rect x="10" y="18" width="4" height="2" fill="#8082f8"/>
+            <rect x="7" y="1" width="10" height="22" stroke="#8082f8" fill="none"/>
+            <rect x="8" y="2" width="8" height="20" stroke="#8082f8" fill="none"/>
+            <rect x="9" y="4" width="6" height="13" stroke="#8082f8" fill="none"/>
             <rect x="10" y="3" width="4" height="1" fill="#8082f8"/>
+            <rect x="11" y="19" width="2" height="2" fill="#8082f8"/>
+            <rect x="6" y="6" width="1" height="2" fill="#8082f8" opacity="0.35"/>
+            <rect x="17" y="14" width="1" height="3" fill="#8082f8" opacity="0.35"/>
           </svg>
         </div>
 
@@ -375,110 +378,90 @@ const Scene: React.FC = () => {
         {/* 5. Mind Blown */}
         <div className="js-orbiter" ref={el => { orbiterRefs.current[4] = el; }}>
           <svg viewBox="0 0 32 32" shapeRendering="crispEdges" fill="none" stroke="#8082f8" strokeWidth="0.5">
-            <rect x="15" y="0" width="2" height="1" fill="#8082f8" opacity="0.5"/>
-            <rect x="10" y="1" width="1" height="1" fill="#8082f8" opacity="0.4"/>
-            <rect x="21" y="1" width="1" height="1" fill="#8082f8" opacity="0.4"/>
-            <rect x="6" y="2" width="1" height="1" fill="#8082f8" opacity="0.3"/>
-            <rect x="25" y="2" width="1" height="1" fill="#8082f8" opacity="0.3"/>
-            <rect x="4" y="4" width="1" height="1" fill="#8082f8" opacity="0.3"/>
-            <rect x="27" y="4" width="1" height="1" fill="#8082f8" opacity="0.3"/>
-            <rect x="14" y="2" width="1" height="2" fill="#8082f8" opacity="0.7"/>
-            <rect x="17" y="2" width="1" height="2" fill="#8082f8" opacity="0.7"/>
-            <rect x="11" y="3" width="1" height="2" fill="#8082f8" opacity="0.6"/>
-            <rect x="20" y="3" width="1" height="2" fill="#8082f8" opacity="0.6"/>
-            <rect x="8" y="4" width="2" height="1" fill="#8082f8" opacity="0.7"/>
-            <rect x="22" y="4" width="2" height="1" fill="#8082f8" opacity="0.7"/>
-            <rect x="6" y="5" width="1" height="2" fill="#8082f8" opacity="0.6"/>
-            <rect x="25" y="5" width="1" height="2" fill="#8082f8" opacity="0.6"/>
-            <rect x="9" y="5" width="1" height="1" fill="#8082f8" opacity="0.8"/>
-            <rect x="22" y="5" width="1" height="1" fill="#8082f8" opacity="0.8"/>
-            <rect x="7" y="7" width="1" height="1" fill="#8082f8" opacity="0.5"/>
-            <rect x="24" y="7" width="1" height="1" fill="#8082f8" opacity="0.5"/>
-            <rect x="13" y="5" width="2" height="1" fill="#8082f8"/>
-            <rect x="17" y="5" width="2" height="1" fill="#8082f8"/>
-            <rect x="12" y="6" width="3" height="1" fill="#8082f8" opacity="0.8"/>
-            <rect x="17" y="6" width="3" height="1" fill="#8082f8" opacity="0.8"/>
-            <rect x="14" y="7" width="1" height="1" fill="#8082f8" opacity="0.6"/>
-            <rect x="17" y="7" width="1" height="1" fill="#8082f8" opacity="0.6"/>
-            <rect x="10" y="8" width="1" height="1" stroke="#8082f8" fill="none"/>
-            <rect x="21" y="8" width="1" height="1" stroke="#8082f8" fill="none"/>
-            <rect x="9" y="9" width="1" height="2" stroke="#8082f8" fill="none"/>
-            <rect x="22" y="9" width="1" height="2" stroke="#8082f8" fill="none"/>
-            <rect x="8" y="11" width="1" height="6" stroke="#8082f8" fill="none"/>
-            <rect x="23" y="11" width="1" height="6" stroke="#8082f8" fill="none"/>
-            <rect x="9" y="17" width="1" height="2" stroke="#8082f8" fill="none"/>
-            <rect x="22" y="17" width="1" height="2" stroke="#8082f8" fill="none"/>
-            <rect x="10" y="19" width="1" height="2" stroke="#8082f8" fill="none"/>
-            <rect x="21" y="19" width="1" height="2" stroke="#8082f8" fill="none"/>
-            <rect x="11" y="21" width="2" height="1" stroke="#8082f8" fill="none"/>
-            <rect x="19" y="21" width="2" height="1" stroke="#8082f8" fill="none"/>
+            {/* blast */}
+            <rect x="15" y="1" width="2" height="2" fill="#8082f8"/>
+            <rect x="13" y="2" width="2" height="1" fill="#8082f8" opacity="0.75"/>
+            <rect x="17" y="2" width="2" height="1" fill="#8082f8" opacity="0.75"/>
+            <rect x="11" y="3" width="2" height="1" fill="#8082f8" opacity="0.55"/>
+            <rect x="19" y="3" width="2" height="1" fill="#8082f8" opacity="0.55"/>
+            <rect x="9" y="4" width="2" height="1" fill="#8082f8" opacity="0.4"/>
+            <rect x="21" y="4" width="2" height="1" fill="#8082f8" opacity="0.4"/>
+            <rect x="8" y="6" width="1" height="1" fill="#8082f8" opacity="0.35"/>
+            <rect x="23" y="6" width="1" height="1" fill="#8082f8" opacity="0.35"/>
+
+            {/* cracked head */}
+            <rect x="9" y="9" width="14" height="1" stroke="#8082f8" fill="none"/>
+            <rect x="8" y="10" width="1" height="6" stroke="#8082f8" fill="none"/>
+            <rect x="23" y="10" width="1" height="6" stroke="#8082f8" fill="none"/>
+            <rect x="9" y="16" width="14" height="1" stroke="#8082f8" fill="none"/>
+            <rect x="10" y="8" width="4" height="1" stroke="#8082f8" fill="none"/>
+            <rect x="18" y="8" width="4" height="1" stroke="#8082f8" fill="none"/>
+            <rect x="14" y="8" width="1" height="2" stroke="#8082f8" fill="none"/>
+            <rect x="17" y="8" width="1" height="2" stroke="#8082f8" fill="none"/>
+            <rect x="15" y="7" width="2" height="1" fill="#8082f8" opacity="0.7"/>
+
+            {/* eyes */}
+            <rect x="11" y="11" width="4" height="3" stroke="#8082f8" fill="none"/>
+            <rect x="12" y="12" width="2" height="1" fill="#8082f8"/>
+            <rect x="17" y="11" width="4" height="3" stroke="#8082f8" fill="none"/>
+            <rect x="18" y="12" width="2" height="1" fill="#8082f8"/>
+
+            {/* mouth + jaw */}
+            <rect x="13" y="18" width="6" height="1" stroke="#8082f8" fill="none"/>
+            <rect x="12" y="19" width="8" height="3" stroke="#8082f8" fill="none"/>
+            <rect x="14" y="20" width="4" height="1" fill="#8082f8" opacity="0.55"/>
             <rect x="13" y="22" width="6" height="1" stroke="#8082f8" fill="none"/>
-            <rect x="10" y="12" width="4" height="4" stroke="#8082f8" fill="none"/>
-            <rect x="11" y="13" width="2" height="2" fill="#8082f8"/>
-            <rect x="18" y="12" width="4" height="4" stroke="#8082f8" fill="none"/>
-            <rect x="19" y="13" width="2" height="2" fill="#8082f8"/>
-            <rect x="10" y="10" width="4" height="1" fill="#8082f8"/>
-            <rect x="18" y="10" width="4" height="1" fill="#8082f8"/>
-            <rect x="13" y="18" width="6" height="3" stroke="#8082f8" fill="none"/>
-            <rect x="14" y="19" width="4" height="1" fill="#8082f8" opacity="0.3"/>
-            <rect x="9" y="14" width="1" height="1" fill="#8082f8" opacity="0.4"/>
-            <rect x="22" y="14" width="1" height="1" fill="#8082f8" opacity="0.4"/>
-            <rect x="5" y="8" width="1" height="1" fill="#8082f8" opacity="0.4"/>
-            <rect x="26" y="8" width="1" height="1" fill="#8082f8" opacity="0.4"/>
-            <rect x="3" y="6" width="1" height="1" fill="#8082f8" opacity="0.3"/>
-            <rect x="28" y="6" width="1" height="1" fill="#8082f8" opacity="0.3"/>
-            <rect x="15" y="3" width="2" height="2" fill="#8082f8" opacity="0.5"/>
-            <rect x="13" y="4" width="1" height="1" fill="#8082f8" opacity="0.4"/>
-            <rect x="18" y="4" width="1" height="1" fill="#8082f8" opacity="0.4"/>
+
+            {/* cheeks/details */}
+            <rect x="9" y="13" width="1" height="1" fill="#8082f8" opacity="0.35"/>
+            <rect x="22" y="13" width="1" height="1" fill="#8082f8" opacity="0.35"/>
+            <rect x="10" y="17" width="2" height="1" stroke="#8082f8" fill="none"/>
+            <rect x="20" y="17" width="2" height="1" stroke="#8082f8" fill="none"/>
           </svg>
         </div>
 
         {/* 6. Rocket */}
         <div className="js-orbiter" ref={el => { orbiterRefs.current[5] = el; }}>
           <svg viewBox="0 0 32 32" shapeRendering="crispEdges" fill="none" stroke="#8082f8" strokeWidth="0.5">
+            {/* nose cone + body */}
             <rect x="15" y="1" width="2" height="1" fill="#8082f8"/>
             <rect x="14" y="2" width="4" height="1" fill="#8082f8"/>
-            <rect x="14" y="3" width="4" height="1" stroke="#8082f8" fill="none"/>
-            <rect x="13" y="4" width="6" height="1" stroke="#8082f8" fill="none"/>
-            <rect x="12" y="5" width="8" height="1" stroke="#8082f8" fill="none"/>
-            <rect x="12" y="6" width="8" height="1" stroke="#8082f8" fill="none"/>
-            <rect x="11" y="7" width="10" height="1" stroke="#8082f8" fill="none"/>
-            <rect x="11" y="8" width="2" height="3" stroke="#8082f8" fill="none"/>
-            <rect x="19" y="8" width="2" height="3" stroke="#8082f8" fill="none"/>
-            <rect x="13" y="8" width="6" height="4" stroke="#8082f8" fill="none"/>
-            <rect x="14" y="9" width="4" height="2" fill="#8082f8"/>
-            <rect x="11" y="12" width="10" height="1" stroke="#8082f8" fill="none"/>
-            <rect x="11" y="13" width="10" height="1" stroke="#8082f8" fill="none"/>
-            <rect x="12" y="14" width="8" height="1" fill="#8082f8"/>
-            <rect x="11" y="15" width="10" height="1" stroke="#8082f8" fill="none"/>
-            <rect x="11" y="16" width="10" height="1" stroke="#8082f8" fill="none"/>
-            <rect x="12" y="17" width="8" height="1" stroke="#8082f8" fill="none"/>
-            <rect x="12" y="18" width="8" height="1" stroke="#8082f8" fill="none"/>
-            <rect x="13" y="19" width="6" height="1" fill="#8082f8"/>
-            <rect x="13" y="20" width="6" height="1" stroke="#8082f8" fill="none"/>
+            <rect x="13" y="3" width="6" height="1" stroke="#8082f8" fill="none"/>
+            <rect x="12" y="4" width="8" height="1" stroke="#8082f8" fill="none"/>
+            <rect x="11" y="5" width="10" height="1" stroke="#8082f8" fill="none"/>
+            <rect x="11" y="6" width="10" height="12" stroke="#8082f8" fill="none"/>
+
+            {/* window */}
+            <rect x="14" y="8" width="4" height="3" stroke="#8082f8" fill="none"/>
+            <rect x="15" y="9" width="2" height="1" fill="#8082f8"/>
+
+            {/* panel lines */}
+            <rect x="12" y="12" width="8" height="1" stroke="#8082f8" fill="none"/>
+            <rect x="12" y="15" width="8" height="1" stroke="#8082f8" fill="none"/>
+
+            {/* fins */}
             <rect x="8" y="14" width="3" height="1" stroke="#8082f8" fill="none"/>
             <rect x="7" y="15" width="4" height="1" stroke="#8082f8" fill="none"/>
-            <rect x="6" y="16" width="5" height="1" stroke="#8082f8" fill="none"/>
-            <rect x="6" y="17" width="5" height="1" stroke="#8082f8" fill="none"/>
+            <rect x="6" y="16" width="5" height="2" stroke="#8082f8" fill="none"/>
             <rect x="7" y="18" width="4" height="1" stroke="#8082f8" fill="none"/>
             <rect x="8" y="19" width="3" height="1" stroke="#8082f8" fill="none"/>
-            <rect x="8" y="16" width="2" height="2" fill="#8082f8"/>
+            <rect x="8" y="16" width="2" height="1" fill="#8082f8" opacity="0.6"/>
+
             <rect x="21" y="14" width="3" height="1" stroke="#8082f8" fill="none"/>
             <rect x="21" y="15" width="4" height="1" stroke="#8082f8" fill="none"/>
-            <rect x="21" y="16" width="5" height="1" stroke="#8082f8" fill="none"/>
-            <rect x="21" y="17" width="5" height="1" stroke="#8082f8" fill="none"/>
+            <rect x="21" y="16" width="5" height="2" stroke="#8082f8" fill="none"/>
             <rect x="21" y="18" width="4" height="1" stroke="#8082f8" fill="none"/>
             <rect x="21" y="19" width="3" height="1" stroke="#8082f8" fill="none"/>
-            <rect x="22" y="16" width="2" height="2" fill="#8082f8"/>
-            <rect x="13" y="21" width="1" height="2" fill="#8082f8" opacity="0.6"/>
-            <rect x="18" y="21" width="1" height="2" fill="#8082f8" opacity="0.6"/>
-            <rect x="14" y="21" width="1" height="3" fill="#8082f8" opacity="0.7"/>
-            <rect x="17" y="21" width="1" height="3" fill="#8082f8" opacity="0.7"/>
-            <rect x="15" y="21" width="2" height="5" fill="#8082f8"/>
-            <rect x="15" y="26" width="2" height="2" fill="#8082f8" opacity="0.7"/>
-            <rect x="15" y="28" width="2" height="1" fill="#8082f8" opacity="0.4"/>
-            <rect x="14" y="25" width="1" height="1" fill="#8082f8" opacity="0.5"/>
-            <rect x="17" y="24" width="1" height="1" fill="#8082f8" opacity="0.5"/>
+            <rect x="22" y="16" width="2" height="1" fill="#8082f8" opacity="0.6"/>
+
+            {/* engine + flame */}
+            <rect x="13" y="18" width="6" height="2" stroke="#8082f8" fill="none"/>
+            <rect x="14" y="20" width="4" height="1" stroke="#8082f8" fill="none"/>
+            <rect x="15" y="21" width="2" height="2" fill="#8082f8"/>
+            <rect x="14" y="23" width="1" height="2" fill="#8082f8" opacity="0.7"/>
+            <rect x="17" y="23" width="1" height="2" fill="#8082f8" opacity="0.7"/>
+            <rect x="15" y="23" width="2" height="4" fill="#8082f8" opacity="0.85"/>
+            <rect x="15" y="27" width="2" height="2" fill="#8082f8" opacity="0.5"/>
             <rect x="16" y="29" width="1" height="1" fill="#8082f8" opacity="0.3"/>
           </svg>
         </div>
