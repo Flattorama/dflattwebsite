@@ -1,17 +1,31 @@
 import React, { useMemo } from 'react';
 import { CARDS } from '../constants';
 import { Card } from './Card';
+import { useReducedMotion } from '../lib/useReducedMotion';
 
 export const CardStack: React.FC = () => {
+  const reducedMotion = useReducedMotion();
+
   // Generate the timeline-scope string dynamically based on card count
   const timelineNames = useMemo(() => {
     return CARDS.map((_, i) => `--card-${i}`).join(', ');
   }, []);
 
+  // Reduced motion: a simple static grid instead of the scroll-driven stack
+  if (reducedMotion) {
+    return (
+      <section className="py-16 px-4 flex flex-wrap justify-center gap-8 md:gap-12">
+        {CARDS.map((card, index) => (
+          <Card key={card.id} data={card} index={index} total={CARDS.length} static />
+        ))}
+      </section>
+    );
+  }
+
   return (
     <>
-      {/* 
-        Inject dynamic CSS styles for keyframes and specific scroll logic 
+      {/*
+        Inject dynamic CSS styles for keyframes and specific scroll logic
         that Tailwind doesn't handle natively or gracefully.
       */}
       <style>
@@ -24,7 +38,7 @@ export const CardStack: React.FC = () => {
 
           @keyframes fly-away {
             to {
-              translate: -150% -150%; 
+              translate: -150% -150%;
               rotate: -25deg;
               opacity: 0;
             }
@@ -39,23 +53,18 @@ export const CardStack: React.FC = () => {
             perspective: 1000px;
             transform-style: preserve-3d;
           }
-          
-          /* Browser support warning styles */
-          @supports not (animation-timeline: view()) {
-            .warning-banner { display: flex !important; }
-          }
         `}
       </style>
 
       <section className="timeline-scope-container relative">
-        
+
         {/* Sticky Display Container */}
         <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center perspective-container">
           {CARDS.map((card, index) => (
-            <Card 
-              key={card.id} 
-              data={card} 
-              index={index} 
+            <Card
+              key={card.id}
+              data={card}
+              index={index}
               total={CARDS.length}
             />
           ))}

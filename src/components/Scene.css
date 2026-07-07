@@ -1,0 +1,307 @@
+:root {
+  --bg-color: #fcf8f3;
+  --accent-color: #8082f8;
+  --text-color: #ffffff;
+}
+
+.scene-container {
+  --perspective-x: 0;
+  --perspective-y: 0;
+  position: relative; /* orbiters are absolutely positioned inside, never fixed */
+  font-family: 'Anton', 'Haettenschweiler', 'Impact', 'Arial Narrow Bold', sans-serif;
+  overflow: hidden; /* Prevent scrollbars from flying icons */
+  padding: 1rem;
+}
+
+.name-header-wrapper {
+  perspective: 1000px;
+  margin-bottom: 2rem;
+  transform-style: preserve-3d;
+  text-align: center;
+  width: 100%;
+}
+
+.name-header {
+  color: var(--accent-color);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: bold;
+  line-height: 0.9;
+  transform-style: preserve-3d;
+  transform:
+      rotateX(calc(var(--perspective-y) * 10deg))
+      rotateY(calc(var(--perspective-x) * 10deg));
+  transition: transform 0.1s ease-out;
+}
+
+.header-container {
+  position: relative;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  text-align: center;
+  width: 100%;
+  max-width: 1200px; /* Constrain width on huge screens */
+}
+
+.header-content {
+  position: relative;
+  transform-style: preserve-3d;
+  transform:
+      rotateX(calc(var(--perspective-y) * 10deg))
+      rotateY(calc(var(--perspective-x) * 10deg));
+  transition: transform 0.1s ease-out;
+  padding: 2rem 0; /* Give breathing room for orbits */
+}
+
+.hero-text {
+  font-size: clamp(2.8rem, 13vw, 12rem);
+  line-height: 0.85;
+  margin: 0;
+  color: var(--text-color);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  z-index: 2;
+  white-space: nowrap; /* Prevent awkward wrapping */
+  text-shadow:
+    calc(-0.04em * (1 + var(--perspective-x))) calc(0.04em * (1 + var(--perspective-y))) 0 var(--accent-color),
+    calc(-0.06em * (1 + var(--perspective-x))) calc(0.06em * (1 + var(--perspective-y))) 0 var(--accent-color),
+    0 0 20px rgba(128, 130, 248, 0.4);
+  -webkit-text-stroke: 2px white;
+}
+
+.hero-text::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-text-stroke: 4px var(--accent-color);
+  z-index: -1;
+  opacity: 0.5;
+}
+
+/* Accent stroke treatment for the "× AI" line */
+.hero-text--accent {
+  color: var(--bg-color);
+  -webkit-text-stroke: 3px var(--accent-color);
+  text-shadow:
+    calc(-0.04em * (1 + var(--perspective-x))) calc(0.04em * (1 + var(--perspective-y))) 0 rgba(128, 130, 248, 0.35),
+    0 0 20px rgba(128, 130, 248, 0.4);
+}
+
+.subtitle-wrapper {
+  margin-top: 1.5rem;
+  height: 2.5rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.cycling-phrase {
+  color: var(--accent-color);
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: clamp(0.9rem, 2.5vw, 1.35rem);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  animation: phrase-cycle 5s ease-in-out forwards;
+  text-align: center;
+  width: 100%;
+}
+
+@keyframes phrase-cycle {
+  0% { opacity: 0; transform: translateY(-20px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-20px); }
+}
+
+.hero-microcopy {
+  margin-top: 0.75rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: clamp(0.7rem, 1.6vw, 0.9rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6b6b6b;
+  text-align: center;
+}
+
+.hero-cta-row {
+  margin-top: 1.75rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 20; /* above orbiters passing in front */
+}
+
+.hero-cta {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(0.85rem, 2vw, 1.1rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.75rem 1.75rem;
+  border-radius: 9999px;
+  transition: transform 0.15s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.hero-cta:hover,
+.hero-cta:focus-visible {
+  transform: translateY(-2px);
+}
+
+.hero-cta--primary {
+  background-color: var(--accent-color);
+  color: #fff;
+}
+
+.hero-cta--primary:hover,
+.hero-cta--primary:focus-visible {
+  background-color: #6d6ff0;
+}
+
+.hero-cta--secondary {
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+}
+
+.hero-cta--secondary:hover,
+.hero-cta--secondary:focus-visible {
+  background-color: var(--accent-color);
+  color: #fff;
+}
+
+.orbit-system {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 110%;
+  height: 110%;
+  transform: translate(-50%, -50%) rotateX(70deg) rotateZ(-10deg);
+  pointer-events: none;
+  transform-style: preserve-3d;
+  z-index: 1;
+}
+
+.orbit-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--accent-color);
+  border-radius: 50%;
+  box-shadow: 0 0 15px var(--accent-color);
+  opacity: 0.6;
+}
+
+/* Faint counter-rotating dashed ring at 115% radius for depth */
+.orbit-ring--counter {
+  top: -7.5%;
+  left: -7.5%;
+  width: 115%;
+  height: 115%;
+  border: 1.5px dashed var(--accent-color);
+  box-shadow: none;
+  opacity: 0.25;
+  animation: counter-spin 40s linear infinite reverse;
+}
+
+@keyframes counter-spin {
+  from { transform: rotateZ(0deg); }
+  to { transform: rotateZ(360deg); }
+}
+
+.js-orbiter {
+  position: absolute; /* inside the hero — never floats over other sections */
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 60px;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  will-change: transform, opacity;
+}
+
+@media (min-width: 768px) {
+  .js-orbiter {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+.js-orbiter svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 5px rgba(128, 130, 248, 0.8));
+  transition: filter 0.3s ease;
+}
+
+/* Far side of the orbit: blur + desaturate to sell the 3D */
+.js-orbiter.is-far svg {
+  filter: blur(1.5px) saturate(0.7) drop-shadow(0 0 5px rgba(128, 130, 248, 0.5));
+}
+
+.orbiter-label {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--accent-color);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding: 3px 10px;
+  border-radius: 3px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Chip fades in when the orbiter is at front-of-orbit */
+.js-orbiter.is-front .orbiter-label {
+  opacity: 1;
+}
+
+/* Mobile specific adjustments */
+@media (max-width: 768px) {
+  .name-header-wrapper { margin-bottom: 1rem; }
+  .hero-text { letter-spacing: 1px; -webkit-text-stroke: 1px white; }
+  .hero-text::before { -webkit-text-stroke: 2px var(--accent-color); }
+  .hero-text--accent { -webkit-text-stroke: 2px var(--accent-color); }
+
+  /* Flatten the orbit slightly less on mobile so icons don't bunch up */
+  .orbit-system { width: 120%; height: 80%; }
+}
+
+/* Reduced motion: static hero — icons rest on the ring, labels shown, no loops */
+.scene-container.is-static .cycling-phrase {
+  animation: none;
+}
+
+.scene-container.is-static .orbit-ring--counter {
+  animation: none;
+}
+
+.scene-container.is-static .name-header,
+.scene-container.is-static .header-content {
+  transform: none;
+  transition: none;
+}
+
+.scene-container.is-static .orbiter-label {
+  opacity: 1;
+}

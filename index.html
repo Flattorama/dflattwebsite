@@ -3,11 +3,70 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dan Flatt - Creative Developer</title>
-    
+    <title>Dan Flatt — Marketing &amp; AI Leader | Speaker, 2x Founder</title>
+    <meta name="description" content="Senior marketing executive and 2x tech founder building AI-native marketing organizations. Speaker and writer on AI in marketing. Toronto." />
+    <link rel="canonical" href="https://danflatt.ca/" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Dan Flatt" />
+    <meta property="og:title" content="Dan Flatt — Marketing &amp; AI Leader | Speaker, 2x Founder" />
+    <meta property="og:description" content="Senior marketing executive and 2x tech founder building AI-native marketing organizations. Speaker and writer on AI in marketing. Toronto." />
+    <meta property="og:url" content="https://danflatt.ca/" />
+    <meta property="og:image" content="https://danflatt.ca/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Dan Flatt — Marketing &amp; AI Leader | Speaker, 2x Founder" />
+    <meta name="twitter:description" content="Senior marketing executive and 2x tech founder building AI-native marketing organizations. Speaker and writer on AI in marketing. Toronto." />
+    <meta name="twitter:image" content="https://danflatt.ca/og-image.png" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Dan Flatt",
+      "url": "https://danflatt.ca",
+      "jobTitle": "Senior Director of Marketing",
+      "worksFor": { "@type": "Organization", "name": "TBDC" },
+      "alumniOf": [
+        { "@type": "CollegeOrUniversity", "name": "Ivey Business School" },
+        { "@type": "CollegeOrUniversity", "name": "Western University Faculty of Law" },
+        { "@type": "CollegeOrUniversity", "name": "University of Toronto" }
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/danielflatt/",
+        "https://github.com/Flattorama"
+      ],
+      "knowsAbout": ["Marketing", "Artificial Intelligence", "Growth Strategy"]
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- GA4: set the measurement ID to enable analytics (Dan's GA4 property). -->
+    <script>
+      window.GA_MEASUREMENT_ID = ''; // TODO(Dan): e.g. 'G-XXXXXXXXXX'
+      if (window.GA_MEASUREMENT_ID) {
+        var gs = document.createElement('script');
+        gs.async = true;
+        gs.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GA_MEASUREMENT_ID;
+        document.head.appendChild(gs);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ dataLayer.push(arguments); }
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', window.GA_MEASUREMENT_ID);
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

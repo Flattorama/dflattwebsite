@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-label="LUMIN8 AGENCY cover">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0055FF"/>
+      <stop offset="1" stop-color="#111111"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#g)"/>
+  <rect width="800" height="600" fill="#000000" opacity="0.12"/>
+  <g shape-rendering="crispEdges" opacity="0.28">
+      <rect x="614" y="170" width="26" height="26" fill="#ffffff" opacity="1"/>
+      <rect x="640" y="170" width="26" height="26" fill="#ffffff" opacity="1"/>
+      <rect x="666" y="170" width="26" height="26" fill="#ffffff" opacity="1"/>
+      <rect x="692" y="170" width="26" height="26" fill="#ffffff" opacity="1"/>
+      <rect x="718" y="170" width="26" height="26" fill="#ffffff" opacity="1"/>
+      <rect x="666" y="196" width="26" height="26" fill="#ffffff" opacity="1"/>
+      <rect x="692" y="196" width="26" height="26" fill="#ffffff" opacity="1"/>
+      <rect x="718" y="196" width="26" height="26" fill="#ffffff" opacity="1"/>
+      <rect x="640" y="222" width="26" height="26" fill="#ffffff" opacity="1"/>
+      <rect x="692" y="222" width="26" height="26" fill="#ffffff" opacity="1"/>
+      <rect x="718" y="222" width="26" height="26" fill="#ffffff" opacity="1"/>
+      <rect x="614" y="248" width="26" height="26" fill="#ffffff" opacity="1"/>
+      <rect x="718" y="248" width="26" height="26" fill="#ffffff" opacity="1"/>
+      <rect x="588" y="274" width="26" height="26" fill="#ffffff" opacity="1"/>
+      <rect x="562" y="300" width="26" height="26" fill="#ffffff" opacity="1"/>
+      <rect x="536" y="326" width="26" height="26" fill="#ffffff" opacity="1"/>
+      <rect x="510" y="352" width="26" height="26" fill="#ffffff" opacity="1"/>
+      <rect x="484" y="378" width="26" height="26" fill="#ffffff" opacity="1"/>
+      <rect x="458" y="404" width="26" height="26" fill="#ffffff" opacity="1"/>
+  </g>
+  <g shape-rendering="crispEdges" opacity="0.35">
+    <rect x="64" y="150" width="14" height="14" fill="#ffffff"/>
+    <rect x="86" y="150" width="14" height="14" fill="#ffffff" opacity="0.6"/>
+    <rect x="108" y="150" width="14" height="14" fill="#ffffff" opacity="0.3"/>
+  </g>
+  <g>
+      <text x="64" y="268" font-family="'Arial Black', Arial, sans-serif" font-weight="900" font-size="66" letter-spacing="1" fill="#ffffff">LUMIN8</text>
+      <text x="64" y="346" font-family="'Arial Black', Arial, sans-serif" font-weight="900" font-size="66" letter-spacing="1" fill="#ffffff">AGENCY</text>
+  </g>
+  <text x="64" y="460" font-family="Arial, sans-serif" font-weight="600" font-size="24" letter-spacing="3" fill="#ffffff" opacity="0.85">+35% ROAS · +40% LINKEDIN LEADS</text>
+</svg>

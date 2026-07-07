@@ -1,11 +1,28 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { SITE } from '../constants';
+
+interface NavItem {
+  label: string;
+  to: string;
+}
+
+const NAV_LINKS: NavItem[] = [
+  { label: 'ABOUT', to: '/about' },
+  { label: 'SPEAKING', to: '/speaking' },
+  { label: 'WRITING', to: '/blog' },
+  { label: 'COMMUNITY', to: '/community' },
+  { label: 'CONTACT', to: '/#contact' },
+];
+
+const SOCIALS = [
+  { label: 'LINKEDIN', href: SITE.linkedin },
+  { label: 'GITHUB', href: SITE.github },
+  { label: 'RSS', href: '/rss.xml' },
+];
 
 const Navigation: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-
-  const links = ['ABOUT', 'SERVICES', 'SPEAKING', 'BLOGS', 'CONTACT'];
-  const socials = ['GITHUB', 'CODEPEN', 'BLUESKY', 'MASTODON', 'INSTAGRAM', 'LINKEDIN', 'RSS'];
 
   return (
     <>
@@ -23,14 +40,15 @@ const Navigation: React.FC = () => {
           background-color: currentColor;
           transition: width 0.3s ease;
         }
-        .nav-link-hover:hover::after {
+        .nav-link-hover:hover::after,
+        .nav-link-hover:focus-visible::after {
           width: 100%;
         }
       `}</style>
-      
+
       {/* Main Header Container - pointer-events-none to let mouse pass through to Scene */}
-      <nav className="fixed top-0 left-0 w-full z-50 p-6 md:p-8 flex justify-between items-start pointer-events-none">
-        
+      <nav className="fixed top-0 left-0 w-full z-50 p-6 md:p-8 flex justify-between items-start pointer-events-none" aria-label="Main">
+
         {/* Left Side: Logo & Info */}
         <div className="flex flex-col md:flex-row items-start md:items-center gap-8 pointer-events-auto">
           {/* Logo */}
@@ -40,51 +58,29 @@ const Navigation: React.FC = () => {
 
           {/* Desktop Info Line */}
           <div className="hidden md:flex items-center gap-3 text-accent font-anton text-lg uppercase tracking-wide">
-             <a href="mailto:hi@danflatt.ca" className="nav-link-hover">hi@danflatt.ca</a>
+             <a href={`mailto:${SITE.email}`} className="nav-link-hover">{SITE.email}</a>
           </div>
         </div>
 
         {/* Right Side: Desktop Nav */}
         <div className="hidden md:flex gap-8 pointer-events-auto">
-          {links.map(link => {
-            // Map nav labels to routes
-            const routeMap: { [key: string]: string } = {
-              'BLOGS': '/blog',
-              'ABOUT': '/about',
-              'SERVICES': '/services',
-            };
-            const route = routeMap[link] || `#${link.toLowerCase()}`;
-            
-            // Use Link for router navigation, anchor tags for others
-            if (route.startsWith('/')) {
-              return (
-                <Link
-                  key={link}
-                  to={route}
-                  className="text-accent font-anton text-xl uppercase font-bold tracking-wide nav-link-hover"
-                >
-                  {link}
-                </Link>
-              );
-            } else {
-              return (
-                <a
-                  key={link}
-                  href={route}
-                  className="text-accent font-anton text-xl uppercase font-bold tracking-wide nav-link-hover"
-                >
-                  {link}
-                </a>
-              );
-            }
-          })}
+          {NAV_LINKS.map(({ label, to }) => (
+            <Link
+              key={label}
+              to={to}
+              className="text-accent font-anton text-xl uppercase font-bold tracking-wide nav-link-hover"
+            >
+              {label}
+            </Link>
+          ))}
         </div>
 
         {/* Mobile Menu Toggle Button */}
         <button
-          className={`md:hidden pointer-events-auto z-50 focus:outline-none transition-colors duration-300 ${isOpen ? 'text-[#fcf8f3]' : 'text-accent'}`}
+          className={`md:hidden pointer-events-auto z-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-current transition-colors duration-300 ${isOpen ? 'text-[#fcf8f3]' : 'text-accent'}`}
           onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle Menu"
+          aria-label={isOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isOpen}
         >
           {isOpen ? (
              // Open State: Hamburger / Close lines
@@ -105,10 +101,11 @@ const Navigation: React.FC = () => {
       </nav>
 
       {/* Mobile Menu Overlay */}
-      <div 
+      <div
         className={`fixed inset-0 bg-accent z-40 flex flex-col p-6 transition-transform duration-500 ease-in-out md:hidden overflow-y-auto ${
           isOpen ? 'translate-y-0' : '-translate-y-full'
         }`}
+        aria-hidden={!isOpen}
       >
         {/* Top bar alignment spacer (matches main nav padding) */}
         <div className="flex justify-between items-start mb-12 select-none">
@@ -121,54 +118,31 @@ const Navigation: React.FC = () => {
 
         {/* Mobile Nav Links */}
         <div className="flex flex-col gap-1 mb-auto">
-          {links.map((link, index) => {
-            // Map nav labels to routes
-            const routeMap: { [key: string]: string } = {
-              'BLOGS': '/blog',
-              'ABOUT': '/about',
-              'SERVICES': '/services',
-            };
-            const route = routeMap[link] || `#${link.toLowerCase()}`;
-            
-            // Use Link for router navigation, anchor tags for others
-            if (route.startsWith('/')) {
-              return (
-                <Link
-                  key={link}
-                  to={route}
-                  onClick={() => setIsOpen(false)}
-                  className="text-[#fcf8f3] font-anton text-[15vw] leading-[0.85] uppercase font-bold tracking-tight hover:opacity-80 transition-opacity"
-                  style={{ transitionDelay: `${index * 50}ms` }}
-                >
-                  {link}
-                </Link>
-              );
-            } else {
-              return (
-                <a
-                  key={link}
-                  href={route}
-                  onClick={() => setIsOpen(false)}
-                  className="text-[#fcf8f3] font-anton text-[15vw] leading-[0.85] uppercase font-bold tracking-tight hover:opacity-80 transition-opacity"
-                  style={{ transitionDelay: `${index * 50}ms` }}
-                >
-                  {link}
-                </a>
-              );
-            }
-          })}
+          {NAV_LINKS.map(({ label, to }, index) => (
+            <Link
+              key={label}
+              to={to}
+              onClick={() => setIsOpen(false)}
+              className="text-[#fcf8f3] font-anton text-[15vw] leading-[0.85] uppercase font-bold tracking-tight hover:opacity-80 transition-opacity"
+              style={{ transitionDelay: `${index * 50}ms` }}
+            >
+              {label}
+            </Link>
+          ))}
         </div>
 
         {/* Mobile Socials */}
         <div className="mt-12 border-t-2 border-[#fcf8f3] pt-6">
            <div className="flex flex-col gap-2">
-              {socials.map(social => (
-                 <a 
-                   key={social} 
-                   href="#" 
+              {SOCIALS.map(({ label, href }) => (
+                 <a
+                   key={label}
+                   href={href}
+                   target={href.startsWith('http') ? '_blank' : undefined}
+                   rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
                    className="text-[#fcf8f3] font-anton text-3xl uppercase font-bold tracking-wide hover:translate-x-2 transition-transform"
                  >
-                   {social}
+                   {label}
                  </a>
               ))}
            </div>
